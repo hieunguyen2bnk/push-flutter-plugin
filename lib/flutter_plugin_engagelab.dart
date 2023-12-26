@@ -46,9 +46,9 @@ class FlutterPluginEngagelab {
     bool isProduction = false,
     String channel = '',
     bool isIdfa = false,
-  }) {
+  }) async {
     printMy(" init");
-    _channel.invokeMethod('init', [
+    await _channel.invokeMethod('init', [
       {
         "appKey": appKey,
         "channel": channel,
@@ -58,9 +58,9 @@ class FlutterPluginEngagelab {
     ]);
   }
 
-  static initAndroid() {
+  static initAndroid() async {
     printMy(" init");
-    _channel.invokeMethod('init');
+    await _channel.invokeMethod('init');
   }
 
   /**
@@ -71,9 +71,9 @@ class FlutterPluginEngagelab {
    *
    * @param siteName 数据中心的名字
    */
-  static setSiteName(siteName) {
+  static setSiteName(siteName) async {
     printMy("setSiteName");
-    _channel.invokeMethod('setSiteName', [siteName]);
+    await _channel.invokeMethod('setSiteName', [siteName]);
   }
 
   /**
@@ -483,9 +483,9 @@ class FlutterPluginEngagelab {
   /**
    * 检测通知权限授权情况
    */
-  static checkNotificationAuthorizationIos(){
+  static checkNotificationAuthorizationIos() async {
     printMy("checkNotificationAuthorizationIos");
-    _channel.invokeMethod("checkNotificationAuthorization", []);
+    await _channel.invokeMethod("checkNotificationAuthorization", []);
   }
 
   /**
